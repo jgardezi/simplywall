@@ -1,0 +1,17 @@
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+.idea
+
+# Ignore docker configurations
+docker/.env
+docker/logs
+
+# Ignore code configurations
+code/vendor
+code/.idea
+code/.env
+
+# Ignore unit test coverage report
+code/test-reports
