@@ -16,3 +16,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->get('/companies', ['as' => 'companies', 'uses' => 'CompanyController@index']);
