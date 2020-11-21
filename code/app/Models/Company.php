@@ -4,11 +4,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\Relationships\CompanyRelationship;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Company extends Model
 {
+    use CompanyRelationship;
+
     /**
      * Customized name for created_at.
      */
@@ -48,35 +51,4 @@ class Company extends Model
      * @var bool
      */
     public $incrementing = false;
-
-    /**
-     * Get the prices for the company.
-     *
-     * @return HasMany
-     */
-    public function prices()
-    {
-        return $this->hasMany(Price::class);
-    }
-
-    /**
-     * Get the last know share price.
-     *
-     * @param string $column
-     * @return HasMany
-     */
-    public function lastKnowPrice($column = 'date_created')
-    {
-        return $this->prices()->latest($column);
-    }
-
-    /**
-     * Get the snowflake score record of the company.
-     *
-     * @return HasOne
-     */
-    public function score()
-    {
-        return $this->hasOne(Score::class);
-    }
 }

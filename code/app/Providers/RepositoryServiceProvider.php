@@ -3,11 +3,11 @@
 
 namespace App\Providers;
 
-use App\Repositories\BaseRepository;
-use App\Repositories\CompanyRepository;
-use App\Repositories\CompanyRepositoryInterface;
-use App\Repositories\RepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Eloquent\BaseRepository;
+use App\Repositories\Contracts\RepositoryInterface;
+use App\Repositories\Eloquent\CompanyRepository;
+use App\Repositories\Contracts\CompanyRepositoryInterface;
 
 /**
  * Class RepositoryServiceProvider

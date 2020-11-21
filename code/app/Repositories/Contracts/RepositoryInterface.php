@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Repositories;
+namespace App\Repositories\Contracts;
 
 use Illuminate\Support\Collection;
 
@@ -12,11 +12,13 @@ use Illuminate\Support\Collection;
 interface RepositoryInterface
 {
     /**
-     * Get all companies.
+     * Retrieve all data of repository
      *
-     * @return Collection
+     * @param array $columns
+     *
+     * @return mixed
      */
-    public function all();
+    public function all($columns = ['*']);
 
     /**
      * Retrieve all data of repository, paginated
@@ -27,4 +29,12 @@ interface RepositoryInterface
      * @return mixed
      */
     public function paginate($limit = 15, $columns = ['*']);
+
+    /**
+     * Load relations
+     *
+     * @param array|string $relations
+     * @return mixed
+     */
+    public function with($relations);
 }

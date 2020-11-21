@@ -15,12 +15,16 @@ class Company extends JsonResource
      */
     public function toArray($request)
     {
+        $scoreTotal         = (int)$this->whenLoaded('score')->total;
+        $lastKnowSharePrice = (float)$this->whenLoaded('prices')->sortDesc()->first()->price;
+
         return [
             'id'                  => $this->id,
             'name'                => $this->name,
             'uniqueSymbol'        => $this->unique_symbol,
-            'lastKnowSharePrice'  => (float)$this->lastKnowPrice()->first()->price,
-            'snowFlakeScoreTotal' => (int)$this->score->total,
+            'exchangeSymbol'      => $this->exchange_symbol,
+            'lastKnowSharePrice'  => $lastKnowSharePrice,
+            'snowFlakeScoreTotal' => $scoreTotal,
         ];
     }
 }
