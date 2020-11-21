@@ -21,7 +21,7 @@ Top level two main directories are
 1. Clone this repository anywhere on your OS.
 
 ```bash
-> git clone git@bitbucket.org:primex-connect/auth-microservice.git
+> git clone https://github.com/jgardezi/simplywall.git
 > cd simplywall
 ```
 
