@@ -63,7 +63,6 @@ class CompanyCriteria implements CriteriaInterface
             } elseif ($orderBy === 'volatility') {
                 // TODO
                 // $date = Carbon::today()->subDays(90);
-                // $model = $model
                 //    ->leftJoin('CompanyPriceClose', $table.'.id', '=', 'CompanyPriceClose.company_id')
                 //    ->where('CompanyPriceClose.total', '>=', $date);
             } else {
