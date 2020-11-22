@@ -4,9 +4,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Relationships\CompanyRelationship;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Traits\Relationship\CompanyRelationship;
 
 class Company extends Model
 {

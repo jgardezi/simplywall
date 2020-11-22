@@ -4,9 +4,9 @@
 namespace App\Repositories\Criteria;
 
 
+use App\Models\Price;
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Contracts\CriteriaInterface;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -61,10 +61,9 @@ class CompanyCriteria implements CriteriaInterface
                 $model = $model
                     ->orderBy('CompanyScore.total', $sortBy);
             } elseif ($orderBy === 'volatility') {
-                // TODO
-                // $date = Carbon::today()->subDays(90);
-                //    ->leftJoin('CompanyPriceClose', $table.'.id', '=', 'CompanyPriceClose.company_id')
-                //    ->where('CompanyPriceClose.total', '>=', $date);
+                $companies = Price::priceByNumberOfDays(90, $sortBy);
+                $orderByCompanies = "'".implode("','", $companies->keys()->toArray())."'";
+                $model = $model->orderByRaw("FIELD (id, {$orderByCompanies})");
             } else {
                 $model = $model->orderBy($orderBy, $sortBy);
             }

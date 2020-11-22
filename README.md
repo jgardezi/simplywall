@@ -88,6 +88,7 @@ Lumen (8.2.0) (Laravel Components ^8.0)
 ## API Documentation
 
 - Compaines list API's and paramaters options.
+  - orderBy: *volatility* option will not work with sqlite DB as `FIELD` function is not available.
 
 ```bash
 > curl --location --request GET 'localhost/companies?limit=10&orderBy=score&sortBy=asc&exchangeSymbols=ASX,NYSE&scoreTotal=13&page=1'
